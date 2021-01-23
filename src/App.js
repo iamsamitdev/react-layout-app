@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route, Switch} from 'react-router-dom'
+import Home from './Home'
+import About from './About'
+import Service from './Service';
+import Contact from './Contact';
+import Account from './Account';
+import Report from './Report';
+import Login from './Login';
+import Register from './Register';
+import ForgotPassword from './ForgotPassword';
+import NotFoundPage from './NotFoundPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Switch>
+            <Route path="/" exact={true} component={Login} />
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/service" component={Service} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/account/:id" component={Account} />
+            <Route path="/report" component={Report} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/forgotpassword" component={ForgotPassword} />
+            <Route component={NotFoundPage} />
+        </Switch>
+    )
 }
 
-export default App;
+export default App
